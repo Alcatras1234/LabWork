@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server-Java
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres:13
+    container_name: db_posgresql
+    restart: always
+    environment:
+      POSTGRES_USER: auth
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: users_action_data
+    ports:
+      - "2751:5432" # первый для компа, второй для контейнера докера
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

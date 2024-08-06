@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db:5432/users_action_data
+    username: auth
+    password: password123
+
+deepl:
+  api:
+    key: "fea6015b-7319-4ed8-b45f-3130855f184b:fx"
