@@ -4,6 +4,9 @@ spring:
     url: jdbc:postgresql://db:5432/users_action_data
     username: auth
     password: password123
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
 deepl:
   api:
