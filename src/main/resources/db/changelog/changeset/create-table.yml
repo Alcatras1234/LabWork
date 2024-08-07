@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table
+      author: Danial
+      changes:
+        - createTable:
+            tableName: actions
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ip
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: input_text
+                  type: text
+              - column:
+                  name: output_text
+                  type: text
