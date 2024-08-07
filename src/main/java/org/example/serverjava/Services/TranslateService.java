@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -85,6 +86,7 @@ public class TranslateService {
 
         loadSupportedLanguages();
 
+
         if (!supportedLanguages.contains(sourceLan.toUpperCase())) {
             throw new SourceLanguageNotFoundException();
         } else if (!supportedLanguages.contains(targetLan.toUpperCase())) {
@@ -120,8 +122,9 @@ public class TranslateService {
                     UriComponentsBuilder.fromHttpUrl(url)
                             .queryParam("auth_key", apiKey)
                             .queryParam("text", word)
-                            .queryParam("source_lang", sourceLanguage.toUpperCase())
+
                             .queryParam("target_lang", targetLanguage.toUpperCase())
+                            .queryParam("save_formatting", true)
                             .toUriString(),
                     null,
                     String.class
